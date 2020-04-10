@@ -11,14 +11,14 @@
 }
 
 .list-header span:nth-of-type(2){
-  margin-left: -2rem;
+  margin-left: -8rem;
   flex: 3;
 }
 
 
-/*
+/* 
 .list-header span:nth-of-type(1) {
   margin-right: -1rem;
   flex: 1;
-}
-*/
+} */
+

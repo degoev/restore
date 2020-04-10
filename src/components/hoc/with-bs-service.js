@@ -6,12 +6,12 @@ const withBsService = (Wrapped) => {
      return (props) => {
                return (
                     <BsServiceConsumer>{
-                         (service) => {
-                              return(<Wrapped {...props} service={service} />);
+                         (value) => {
+                              return(<Wrapped {...props} service={value} />);
                          }
                     }</BsServiceConsumer>
                );
-            }
+            };
 };
 
 export default withBsService;

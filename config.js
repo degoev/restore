@@ -1,4 +1,4 @@
-SystemJS.config({
+/*SystemJS.config({
   baseURL: 'https://unpkg.com/',
   defaultExtension: 'js',
   meta: {
@@ -29,7 +29,7 @@ SystemJS.config({
     'path': 'path@0.12.7/path.js',
     'process': 'process@0.11.10/index.js',
     'system-image': 'url-loader@4.0.0/dist/cjs.js',
-   /* 'system-image@0.1.0/image.js'*/
+    'system-image@0.1.0/image.js' 
     'es6-module-loader': 'es6-module-loader@0.17.11/dist/es6-module-loader.js',
     'react-image': 'react-image@2.4.0/cjs/index.js',
     'mime-db': 'mime-db@1.43.0/index.js',
@@ -40,4 +40,4 @@ SystemJS.config({
 });
 
 SystemJS.import('../src/index.js')
-  .catch(console.error.bind(console));
+  .catch(console.error.bind(console));*/

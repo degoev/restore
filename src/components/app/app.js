@@ -1,41 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
 import "./app.css"
 
-import ErrorBoundry from "../error-boundry/error-boundry.js"
-import { BsServiceProvider } from "../../services/bs-service-context.js"
-import BookstoreService from "../../services/bookstore-service.js"
+import withBsService from "../hoc/with-bs-service.js";
 
 import ShopHeader from "../shop-header/shop-header.js";
-import ItemList from "../item-list/item-list.js"
+import ShoppingCartTable from "../shopping-cart-table/shopping-cart-table.js";
+import HomePage from "../pages/home-page.js";
 
-export default class App extends Component {
-     constructor(){
-          super();
-          this.state = {
-               order: [
-                    {name: "Sonets", cost: 50},
-                    {name: "Novels", cost: 100}
-          ]
-          }
-     }
-     bookstoreService = new BookstoreService();
-     render(){
-          let { order } = this.state;
-          return(
-               <ErrorBoundry>
-                    <BsServiceProvider value={this.bookstoreService}>
-                         
-                         <ShopHeader order={order} />
-                         <div>
-                         <ItemList label="kek" />
-                              <h1 id="smth">
-                                   This is my cosy bookstore, welcome!
-                              </h1>
-                         </div>
 
-                    </BsServiceProvider>
-               </ErrorBoundry>
-          );
-     }
-}
+const App = ({service}) =>  {
+     //let { bookStoreService } = this.props
+     return(
+          <div className="app">
+               <ShopHeader order={service.getBooks()} />
+                    <Switch>
+                         <Route path="/" component={HomePage} exact />
+                         <Route path="/cart" component={ShoppingCartTable} exact/>
+                         <Route render={() => <h2>Page not found</h2> }/>
+                    </Switch>
+               
+          </div>
+     );
+};
+
+
+export default withBsService(App);

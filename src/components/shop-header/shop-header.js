@@ -1,16 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./shop-header.css"
 
 const ShopHeader = (props) => {
      let { order } = props;
      return(
-          <nav>
-               <h1>ReStore</h1>
-               <div>
-                    {order.length} items (${order.reduce((sum, item) => sum += item.cost, 0)})
-               </div>
-          </nav>
+          <header className="shop-header row">
+               <Link to="/"><h1 className="logo text-dark">ReStore</h1></Link> 
+               
+               <Link to="/cart">
+                    <div className='shopping-cart'>
+                         <i className="cart-icon fa fa-shopping-cart" />
+                         {order.length} items 
+                         (${order.reduce((sum, item) => sum += item.price, 0)})
+                    </div>
+               </Link>
+          </header>
      );
 };
 
