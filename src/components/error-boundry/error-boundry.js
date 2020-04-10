@@ -4,7 +4,7 @@ import ErrorIndicator from "../error-indicator/error-indicator.js";
 
 export default class ErrorBoundry extends Component {
     constructor(){
-        super();
+        super()
         this.state = {
             hasError: false
         }

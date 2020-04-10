@@ -3,8 +3,7 @@ import React from "react";
 import { BsServiceConsumer } from "../../services/bs-service-context.js";
 
 const withBsService = (Wrapped) => {
-     return (
-          (props) => {
+     return (props) => {
                return (
                     <BsServiceConsumer>{
                          (service) => {
@@ -12,8 +11,7 @@ const withBsService = (Wrapped) => {
                          }
                     }</BsServiceConsumer>
                );
-          }
-     );
+            }
 };
 
 export default withBsService;
