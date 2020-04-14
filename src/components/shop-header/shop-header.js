@@ -5,6 +5,7 @@ import "./shop-header.css"
 
 const ShopHeader = (props) => {
      let { order } = props;
+     
      return(
           <header className="shop-header row">
                <Link to="/"><h1 className="logo text-dark">ReStore</h1></Link> 

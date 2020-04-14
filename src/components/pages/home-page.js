@@ -1,12 +1,12 @@
 import React from "react";
 
-import ItemList from "../book-list/book-list.js"
+import BookList from "../../containers/book-list-container.js"
 
 const HomePage = () => {
      return(
           <div>
                <h3>Books:</h3>
-               <ItemList />
+               <BookList />
                     <h1 id="smth">
                          This is my cosy bookstore, welcome!
                     </h1>

@@ -11,10 +11,9 @@ import HomePage from "../pages/home-page.js";
 
 
 const App = ({service}) =>  {
-     //let { bookStoreService } = this.props
      return(
           <div className="app">
-               <ShopHeader order={service.getBooks()} />
+               <ShopHeader order={service.data} />
                     <Switch>
                          <Route path="/" component={HomePage} exact />
                          <Route path="/cart" component={ShoppingCartTable} exact/>

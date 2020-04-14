@@ -9,7 +9,7 @@ let ErrorIndicator = () => {
           <img src={icon} alt="error indicator" />
           <span>Oops!</span>
           <span>something has been crashed </span>
-          <span>(but we already improving it)</span>
+          <span>(but we already resolving it)</span>
      </div>
      );
 };

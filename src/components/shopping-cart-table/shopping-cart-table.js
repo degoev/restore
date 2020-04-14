@@ -1,28 +1,38 @@
 import React from "react";
+import { connect } from "react-redux";
 
-import withBsService from "../hoc/with-bs-service.js";
 
-const ShoppingCartTable = ({service}) => {
-     
-     let books = service.getBooks().map((item) => {
+import * as actions from "../../actions/index.js";
+import Spinner from "../spinner/spinner.js";
+
+const ShoppingCartTable = ({ items, total, onIncrease, onDecrease, onDelete, loading }) => {
+
+     if(loading){
+          return <Spinner />
+     }
+
+     let booksTable = items.map((item, indx) => {
           return (
                <tr key={item.id}>
-                    <td>{item.id + 1}</td>
+                    <td>{indx + 1}</td>
                     <td>{item.title}</td>
                     <td>1</td>
-                    <td>${item.price}</td>
+                    <td>${item.total}</td>
                     <td>
                          <button
+                              onClick={() => onDecrease(item.id)}
                               className="btn btn-outline-danger btn-sm float-right">
-                    <i className="fa fa-trash-o" />
+                              <i className="fa fa-trash-o" />
                          </button>
                          <button
-                              className="btn btn-outline-success btn-sm float-right">
-                    <i className="fa fa-plus-circle" />
+                              className="btn btn-outline-success btn-sm float-right"
+                              onClick={() => onIncrease(item.id)}>
+                              <i className="fa fa-plus-circle" />
                          </button>
                          <button
-                              className="btn btn-outline-warning btn-sm float-right">
-                    <i className="fa fa-minus-circle" />
+                              className="btn btn-outline-warning btn-sm float-right"
+                              onClick={() => onDelete(item.id)}>
+                              <i className="fa fa-minus-circle" />
                          </button>
                     </td>
                </tr>
@@ -30,28 +40,32 @@ const ShoppingCartTable = ({service}) => {
      });
      return(
           <div className="shopping-cart-table">
-      <h2>Your Order</h2>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Item</th>
-            <th>Count</th>
-            <th>Price</th>
-            <th>Action</th>
-          </tr>
-        </thead>
+               <h2>Your Order</h2>
+               <table className="table">
+               <thead>
+                    <tr>
+                    <th>#</th>
+                    <th>Item</th>
+                    <th>Count</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                    </tr>
+               </thead>
 
-        <tbody>
-        { books }
-        </tbody>
-      </table>
+               <tbody>
+               { booksTable }
+               </tbody>
+               </table>
 
-      <div className="total">
-        Total: ${service.getBooks().reduce((sum, item) => sum += item.price, 0)}
-      </div>
-    </div>
+               <div className="total">
+               Total: ${total}
+               </div>
+          </div>
      );
 };
 
-export default withBsService(ShoppingCartTable);
+const mapStateToProps = ({ cartItems, orderTotal, loading }) => {
+     return { items: cartItems, total: orderTotal, loading };
+   }
+
+export default connect(mapStateToProps, actions)(ShoppingCartTable);
