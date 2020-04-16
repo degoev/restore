@@ -31,7 +31,7 @@ export default class BookstoreService {
       setTimeout(()=>{
         resolve(this.data);
         reject(new Error("smthg gone wrong"))
-      }, 1000)
+      }, 700)
     })
   }
 }
