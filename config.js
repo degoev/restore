@@ -29,7 +29,6 @@
     'path': 'path@0.12.7/path.js',
     'process': 'process@0.11.10/index.js',
     'system-image': 'url-loader@4.0.0/dist/cjs.js',
-    'system-image@0.1.0/image.js' 
     'es6-module-loader': 'es6-module-loader@0.17.11/dist/es6-module-loader.js',
     'react-image': 'react-image@2.4.0/cjs/index.js',
     'mime-db': 'mime-db@1.43.0/index.js',

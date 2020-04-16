@@ -7,9 +7,9 @@ const HomePage = () => {
           <div>
                <h3>Books:</h3>
                <BookList />
-                    <h1 id="smth">
+                    {/*<h1 id="smth">
                          This is my cosy bookstore, welcome!
-                    </h1>
+                    </h1>*/}
           </div>
      );
 };

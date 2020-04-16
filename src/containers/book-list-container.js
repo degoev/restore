@@ -16,7 +16,7 @@ class BookListContainer extends Component {
   }
 
   render(){
-    let { books, loading, error } = this.props;
+    let { books, loading, error, bookAddedToCart } = this.props;
 
     if(error){
       return <ErrorIndicator />
@@ -25,7 +25,7 @@ class BookListContainer extends Component {
     if(loading){
       return <Spinner />
     }
-    return <BookList books={books} />
+    return <BookList books={books} onAddedToCart={bookAddedToCart} />
   }
 };
 

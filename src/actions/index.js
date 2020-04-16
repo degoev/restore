@@ -34,8 +34,32 @@ const bookAddedToCart = (bookId) => {
      }
 }
 
+const onIncrease = (bookId) => {
+        return {
+                type: "BOOK_COUNT_INCREASE",
+                payload: bookId
+        };
+};
+
+const onDecrease = (bookId) => {
+    return {
+        type: "BOOK_COUNT_DECREASE",
+        payload: bookId
+    };
+};
+
+const onDelete = (bookId) => {
+    return {
+        type: "BOOK_DELETED_FROM_CART",
+        payload: bookId
+    };
+};
+
 
 export {
      fetchBooks, 
-     bookAddedToCart
+     bookAddedToCart,
+     onIncrease,
+     onDecrease,
+     onDelete
 };

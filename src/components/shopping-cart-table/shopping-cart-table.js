@@ -10,17 +10,17 @@ const ShoppingCartTable = ({ items, total, onIncrease, onDecrease, onDelete, loa
      if(loading){
           return <Spinner />
      }
-
+    
      let booksTable = items.map((item, indx) => {
           return (
                <tr key={item.id}>
                     <td>{indx + 1}</td>
                     <td>{item.title}</td>
-                    <td>1</td>
+                    <td>{item.count}</td>
                     <td>${item.total}</td>
                     <td>
                          <button
-                              onClick={() => onDecrease(item.id)}
+                              onClick={() => onDelete(item.id)}
                               className="btn btn-outline-danger btn-sm float-right">
                               <i className="fa fa-trash-o" />
                          </button>
@@ -31,7 +31,7 @@ const ShoppingCartTable = ({ items, total, onIncrease, onDecrease, onDelete, loa
                          </button>
                          <button
                               className="btn btn-outline-warning btn-sm float-right"
-                              onClick={() => onDelete(item.id)}>
+                              onClick={() => onDecrease(item.id)}>
                               <i className="fa fa-minus-circle" />
                          </button>
                     </td>

@@ -15,7 +15,15 @@ const App = ({service}) =>  {
           <div className="app">
                <ShopHeader order={service.data} />
                     <Switch>
-                         <Route path="/" component={HomePage} exact />
+                         <Route path="/" render={() =>{ 
+                                    return(
+                                      <div>
+                                        <HomePage/>
+                                        <ShoppingCartTable />
+                                      </div>
+                                    );
+                                }
+                          } exact />
                          <Route path="/cart" component={ShoppingCartTable} exact/>
                          <Route render={() => <h2>Page not found</h2> }/>
                     </Switch>

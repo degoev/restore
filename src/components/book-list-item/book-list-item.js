@@ -3,7 +3,7 @@ import React from "react";
 import "./book-list-item.css";
 
 let BookListItem = ({ book, onAddedToCart }) => {
-     let { title, author, price, coverImage } = book;
+     let { title, author, price, coverImage, id } = book;
      return (
           <div className="book-list-item">
                <div className="book-cover">
@@ -14,7 +14,7 @@ let BookListItem = ({ book, onAddedToCart }) => {
                     <div className="book-author">{author}</div>
                     <div className="book-price">${price}</div>
                     <button
-                         onClick={onAddedToCart}
+                         onClick={() => onAddedToCart(id)}
                          className="btn btn-info add-to-cart">
                          Add to cart
                     </button>
