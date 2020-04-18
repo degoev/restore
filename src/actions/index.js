@@ -18,7 +18,16 @@ const booksError = (err) => {
      }
 }
 
-const fetchBooks = (service, dispatch) => () => {
+// const fetchBooksOld = (service, dispatch) => () => {
+//      dispatch(booksRequested());
+//      service.getBooks()
+//        .then((books) => {
+//           dispatch(booksLoaded(books));
+//        })
+//        .catch((err) => dispatch(booksError(err)) )
+//    };
+
+const fetchBooks = (service) => () => (dispatch) => {
      dispatch(booksRequested());
      service.getBooks()
        .then((books) => {
@@ -27,12 +36,13 @@ const fetchBooks = (service, dispatch) => () => {
        .catch((err) => dispatch(booksError(err)) )
    };
 
+
 const bookAddedToCart = (bookId) => {
      return {
           type: "BOOK_ADDED_TO_CART",
           payload: bookId
-     }
-}
+     };
+};
 
 const onIncrease = (bookId) => {
         return {
